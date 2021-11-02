@@ -67,6 +67,7 @@ app.post("/todos", checksExistsUserAccount, (request, response) => {
 });
 
 app.put("/todos/:id", checksExistsUserAccount, (request, response) => {
+  const { username } = request.headers;
   const { user } = request;
   const { title, deadline } = request.body;
   const { id } = request.params;
@@ -84,6 +85,7 @@ app.put("/todos/:id", checksExistsUserAccount, (request, response) => {
 });
 
 app.patch("/todos/:id/done", checksExistsUserAccount, (request, response) => {
+  const { username } = request.headers;
   const { user } = request;
   const { id } = request.params;
 
